@@ -1,0 +1,33 @@
+import React from "react";
+
+type Props = {
+  roleRequired: "ADMIN" | "USER",
+  message?: string,
+  children?: React.ReactNode,
+};
+
+const useRole = () => {
+  let user;
+
+  const _user = localStorage.getItem("userDetails");
+
+  if (_user) {
+    user = JSON.parse(_user);
+  }
+
+  if (user) {
+    return user.role;
+  } else {
+    return "USER";
+  }
+};
+
+const WithPermission = (Props) => {
+  const { roleRequired, message, children } = Props;
+  const role = useRole();
+  return (
+    <>{roleRequired === role ? children : <h3>{message ? message : ""}</h3>}</>
+  );
+};
+
+export default WithPermission;
