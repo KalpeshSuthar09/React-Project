@@ -10,6 +10,10 @@ import Login from "../Login/Login";
 import ProtectedRoutes from "./ProtectedRoutes";
 import PublicRoutes from "./PublicRoute";
 import PermissionDenied from "./PermissionDenied";
+import Signup from '../Signup/Signup'
+import Block from '../Block/Block'
+import UserProfilePage from "../About/UserProfilePage";
+
 
 const MainRoute = () => {
   return (
@@ -32,7 +36,9 @@ const MainRoute = () => {
                 <Route path="PartnerPage" element={<PartnerPage />} />
               </Route> */}
                <Route path="PartnerPage" element={<PartnerPage />} />
+               <Route path="Block" element={<Block/>} />
             </Route>
+            <Route path="/UserProfilePage" element={<UserProfilePage/>}/>
           </Route>
         </Route>
 
@@ -40,9 +46,11 @@ const MainRoute = () => {
         <Route path="Login" element={<PublicRoutes />}>
           <Route path="/Login" element={<Login />} />
         </Route>
+        <Route path="/Signup" element={<Signup/>}></Route>
+
 
         {/* Permission */}
-        <Route path="/PermissionDenied" element={<PermissionDenied />} />
+        {/* <Route path="/PermissionDenied" element={<PermissionDenied />} /> */}
       </Routes>
     </div>
   );

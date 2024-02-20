@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { BsCalendar2Date } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import PartnerProfilePage from "../About/PartnerProfilePage";
 
 const PartnerList = ({ partner, removePartner }) => {
   const itemsPerPage = 10; // Set the number of items to display per page
@@ -19,16 +22,16 @@ const PartnerList = ({ partner, removePartner }) => {
     const pageNumbers = [];
     for (let i = 1; i <= totalPages; i++) {
       pageNumbers.push(
-        <button key={i} onClick={() => handleChangePage(i)}>
+        <button
+          key={i}
+          onClick={() => handleChangePage(i)}
+          className="justify-center items-center px-3.5 h-8 bg-white rounded border border-indigo-500 border-solid aspect-square"
+        >
           {i}
         </button>
       );
     }
-    return (
-      <div className=" pagination w-8 text-black  focus:outline-none  font-normal  text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-white-600 dark:hover:bg-gray-200 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] border-2">
-        {pageNumbers}
-      </div>
-    );
+    return <div className="flex flex-row gap-4 items-center justify-center">{pageNumbers}</div>;
   };
 
   const partnerList = currentItems
@@ -37,22 +40,15 @@ const PartnerList = ({ partner, removePartner }) => {
     })
     .map((val) => (
       <tr key={val.id}>
-        <td className="text-left bg-white p-3">{val.name}</td>
+        <td className="text-left bg-white p-3">
+          <Link to="/UserProfilePage">{val.name}</Link>
+        </td>
         <td className="text-left bg-white p-3">{val.email}</td>
-        <td className="text-left bg-gray-100 p-3">{val.password}</td>
-        <td className="text-left bg-gray-100 p-3">{val.date}</td>
-        <td className="p-3 bg-white">
-          <button
-            className=" bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300 items-center w-32"
-            onClick={() => removePartner(val.id)}
-          >
-            Delete
-          </button>
-          <button
-            className=" bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300 items-center w-32"
-            onClick={() => removePartner(val.id)}
-          >
-            Block
+        <td className="text-left bg-white p-3">{val.role}</td>
+        <td className="text-left bg-white p-3">{val.date}</td>
+        <td className="text-left bg-white p-3">
+          <button className="text-white bg-green-700   font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 ">
+            Active
           </button>
         </td>
       </tr>
@@ -60,24 +56,25 @@ const PartnerList = ({ partner, removePartner }) => {
 
   return (
     <>
-      <div className="details px-8 h-screen">
-        <div className="flex justify-end p-4">
+      <div className="details px-8 h-[100vh]">
+        <div className="flex justify-end p-1 gap-8">
           <form>
             <input
               type="search"
               placeholder="Search"
               onChange={(e) => setSearch(e.target.value)}
-              className=" relative m-0 block min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem]  font-normal leading-[1.6] text-black outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+              className=" relative  block min-w-0 flex-auto rounded border-2 border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] "
             />
           </form>
-          <button className="text-black  focus:outline-none  font-normal rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-white-600 dark:hover:bg-gray-200 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+          <button className="text-black border-2  flex items-center rounded-md text-sm px-6 py-2 text-center  mb-2 gap-2">
+            <BsCalendar2Date />
             Date
           </button>
-          <button className="text-black  focus:outline-none   font-normal rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-white-600 dark:hover:bg-gray-200 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+          <button className="text-black border-2   rounded-md text-sm px-6 py-2 text-center mb-2">
             Filter
           </button>
         </div>
-        <table className="w-full">
+        <table className="w-full flex-wrap">
           <thead className="bg-gray-50 border-b-2 border-gray-200">
             <tr>
               <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/5">
@@ -93,7 +90,7 @@ const PartnerList = ({ partner, removePartner }) => {
                 Register Date
               </th>
               <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/5">
-                Action
+                Status
               </th>
             </tr>
           </thead>

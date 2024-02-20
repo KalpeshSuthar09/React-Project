@@ -7,7 +7,6 @@ import UserList from "./UserList";
 
 const UserPage = () => {
   const [showModel, setShowModel] = useState(false);
-  // const [blocked, setBlocked] = useState([]);
 
   const localStorageKey = "user";
   const [user, setUser] = useState(() => {
@@ -29,22 +28,12 @@ const UserPage = () => {
     setUser(updatedList);
   };
 
-  /* const blockUser = (id) => {
-    const blockedUser = user.find((u) => u.id === id);
-    removeUser(id);
-    setBlocked([...blocked, blockedUser]);
-  };
-
-  const unblockUser = (id) => {
-    const unblockedUser = blocked.find((u) => u.id === id);
-    setBlocked(blocked.filter((u) => u.id !== id));
-    addUser(unblockedUser);
-  }; */
+  
   return (
     <div>
       <div className="flex flex-col">
         <button
-          className=" place-self-end flex items-center gap-1 bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition duration-300 ease-in-out transform hover:scale-110"
+          className=" place-self-end flex items-center gap-1 bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition duration-300 ease-in-out transform hover:scale-110 opacity-0"
           onClick={() => setShowModel(true)}
         >
           AddUser

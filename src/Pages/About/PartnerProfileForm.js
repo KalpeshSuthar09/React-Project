@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GiTireIronCross } from "react-icons/gi";
 
-export default function UserProfileForm({ addProfile, onClose }) {
+export default function PartnerProfileForm({ addProfile, onClose }) {
   const [detail, setDetail] = useState({
     Fname: "",
     Lname: "",

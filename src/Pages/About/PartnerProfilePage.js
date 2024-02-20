@@ -5,7 +5,7 @@ import UserProfileForm from "./UserProfileForm";
 import UserProfile from "./UserProfile";
 import Block from '../Block/Block'
 
-const UserProfilePage = () => {
+const PartnerProfilePage = () => {
   const [showModel, setShowModel] = useState(false);
   const [blocked, setBlocked] = useState([]);
 
@@ -58,4 +58,4 @@ const UserProfilePage = () => {
   );
 };
 
-export default UserProfilePage;
+export default PartnerProfilePage;

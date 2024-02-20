@@ -21,11 +21,11 @@ const Login = () => {
   };
 
   return (
-    <section className="bg-gray-50  flex items-center justify-center shadow-md h-screen overflow-hidden">
-      <div className=" flex flex-col shadow-lg rounded-2xl max-w-3xl p-2 w-9/12 ">
-        <div className="left-content px-16">
+    <div className="bg-gray-50  flex items-center justify-center h-screen ">
+      <div className=" flex flex-col shadow-lg rounded-2xl max-w-3xl p-6 w-7/12 ">
+        <div className="left-content px-16 flex flex-col items-center">
            <svg
-            className="items-center ml-44"
+            className=" text-center"
             width="213"
             height="56"
             viewBox="0 0 213 56"
@@ -108,11 +108,11 @@ const Login = () => {
           <br />
         </div>
         <div>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
+          <form onSubmit={handleSubmit} className="flex flex-col items-center gap-5 ">
             <div>
               <label className="text-lg">Email</label>
               <input
-                className="block pl-80 py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white  dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer "
+                className="block py-1 px-2 w-96 text-sm text-center text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white  dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer "
                 type="email"
                 placeholder="Email"
                 required
@@ -126,7 +126,7 @@ const Login = () => {
               <label className="text-lg">Password</label>
               <input
                 type="password"
-                className="block pl-80 py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white  dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer "
+                className="block  py-1 px-2 w-96 text-sm text-center text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white  dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer "
                 placeholder="Password"
                 required
                 value={detail.password}
@@ -135,13 +135,13 @@ const Login = () => {
                 }
               />
             </div>
-            <div>
-              <div className="text-right text-lg">
+            <div >
+              <div className="text-right text-sm py-3">
                 <Link to="/Signup">Forgot Password?</Link>
               </div>
               <button
                 type="submit"
-                className="bg-indigo-500  text-white font-bold py-2 px-8 rounded w-64 ml-56"
+                className="bg-violet-700 text-white font-bold py-1 px-8 rounded w-80"
               >
                 Sign In
               </button>
@@ -149,7 +149,7 @@ const Login = () => {
           </form>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -25,7 +25,7 @@ const useAuth = () => {
 
 //protected route state
 
-type  ProtectedRouteType = {
+const  ProtectedRouteType = {
   roleRequired: "ADMIN" | "USER",
 };
 

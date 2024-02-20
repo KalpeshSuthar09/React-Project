@@ -98,7 +98,7 @@ const AddUser = ({ addUser, onClose }) => {
             onClick={handleAdd}
             className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300 w-32"
           >
-            AddUser
+            Add User
           </button>
         </div>
       </div>

@@ -1,14 +1,13 @@
 /* import React, { useState } from "react";
 
-const BlockedUserList = ({user, blockedUsers, unblockUser }) => {
+const BlockedUserList = ({ user, unblockUser }) => {
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = user.slice(indexOfFirstItem, indexOfLastItem);
-
-  const totalPages = Math.ceil(user.length / itemsPerPage);
+  const currentItems = blockedUsers.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(blockedUsers.length / itemsPerPage);
 
   const handleChangePage = (page) => {
     setCurrentPage(page);
@@ -42,6 +41,11 @@ const BlockedUserList = ({user, blockedUsers, unblockUser }) => {
       </td>
     </tr>
   ));
+  const unblockUser = (id) => {
+    const unblockedUser = blocked.find((u) => u.id === id);
+    setBlocked(blocked.filter((u) => u.id !== id));
+    addUser(unblockedUser);
+  }; 
 
   return (
     <div className="details px-8 h-screen bg-gray-100">

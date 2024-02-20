@@ -2,38 +2,33 @@ import React, { useState } from "react";
 import { GiTireIronCross } from "react-icons/gi";
 
 export default function AddBooking({ addBooking, onClose }) {
-  const [bookingData, setBookingData] = useState({
+  const [booking, setBooking] = useState({
     name: "",
-    service: "",
-    number: "",
+    email: "",
+    password: "",
     date: "",
+    role: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setBookingData({ ...bookingData, [name]: value });
+    setBooking({ ...booking, [name]: value });
+    localStorage.setItem("Booking-Details", JSON.stringify(booking));
   };
 
   const handleAdd = () => {
     if (
-      bookingData.name === "" ||
-      bookingData.service === "" ||
-      bookingData.number === "" ||
-      bookingData.date === ""
+      booking.email === "" ||
+      booking.password === "" ||
+      booking.name === "" ||
+      booking.role === "" ||
+      booking.date === ""
     ) {
-      alert("Please fill all the details");
+      alert("Please fill the details");
       return;
     }
-    addBooking({
-      data: { ...bookingData },
-      serialNumber: null,
-      orderNumber: generateRandomOrderNumber(),
-    });
-    setBookingData({ name: "", service: "", number: "", date: "" });
-  };
-
-  const generateRandomOrderNumber = () => {
-    return Math.floor(100000 + Math.random() * 900000);
+    addBooking(booking);
+    setBooking({ name: "", email: "", password: "", date: "", role: "" });
   };
 
   return (
@@ -44,63 +39,65 @@ export default function AddBooking({ addBooking, onClose }) {
         </button>
         <div className="bottom-section px-16">
           <h1 className="form-title font-bold text-2xl text-[#002D74]">
-            Add Booking
+            Add User
           </h1>
           <form className="flex flex-col gap-4 ">
             <div className="input-box">
-              <label htmlFor="name">Name</label>
               <input
                 type="text"
-                value={bookingData.name}
-                onChange={handleChange}
-                placeholder="Enter name"
                 name="name"
-                id="name"
+                placeholder="Enter Name"
+                value={booking.name}
+                onChange={handleChange}
                 className="p-2 rounded-xl border w-full"
               />
             </div>
             <div className="input-box">
-              <label htmlFor="service">Service Type</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter Email"
+                value={booking.email}
+                onChange={handleChange}
+                className="p-2 rounded-xl border w-full"
+              />
+            </div>
+            <div className="input-box">
               <input
                 type="text"
-                value={bookingData.service}
+                placeholder="Enter Password"
+                name="password"
+                value={booking.password}
                 onChange={handleChange}
-                name="service"
-                id="service"
-                placeholder="Enter Service Type"
                 className="p-2 rounded-xl border w-full"
               />
             </div>
             <div className="input-box">
-              <label htmlFor="number">Number</label>
               <input
-                type="number"
+                type="text"
+                placeholder="Enter Password"
+                name="role"
+                value={booking.role}
                 onChange={handleChange}
-                name="number"
-                id="number"
-                placeholder="Enter phone number"
-                value={bookingData.number}
                 className="p-2 rounded-xl border w-full"
               />
             </div>
             <div className="input-box">
-              <label htmlFor="date">Date</label>
               <input
                 type="date"
-                onChange={handleChange}
+                placeholder="Enter Register Date"
                 name="date"
-                id="date"
-                placeholder="Enter your Date"
-                value={bookingData.date}
+                value={booking.date}
+                onChange={handleChange}
                 className="p-2 rounded-xl border w-full"
               />
             </div>
           </form>
           <button
-            className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300 w-32"
             onClick={handleAdd}
+            className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300 w-32"
           >
-            Add Booking
+            New Booking
           </button>
         </div>
       </div>

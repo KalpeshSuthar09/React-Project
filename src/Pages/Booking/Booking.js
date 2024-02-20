@@ -22,10 +22,10 @@ export default function Booking() {
         className=" place-self-end flex items-center gap-1 bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition duration-300 ease-in-out transform hover:scale-110"
         onClick={() => setShowModel(true)}
       >
-        Add User
+        Add Booking
       </button>
       {showModel && (
-        <AddBooking onClose={() => setShowModel(false)} addUser={addBooking} />
+        <AddBooking onClose={() => setShowModel(false)} addBooking={addBooking} />
       )}
       <BookingList booking={booking} removeUser={removeBooking} />
       </div>

@@ -3,7 +3,13 @@ import { useState } from "react";
 import { GiTireIronCross } from "react-icons/gi";
 
 const AddPartner = ({ addPartner, onClose }) => {
-  const [detail, setDetail] = useState({name: "", email: "", password: "", date: "" });
+  const [detail, setDetail] = useState({
+    name: "",
+    email: "",
+    password: "",
+    date: "",
+    role: "",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -12,12 +18,18 @@ const AddPartner = ({ addPartner, onClose }) => {
   };
 
   const handleAdd = () => {
-    if (detail.email === "" || detail.password === "" || detail.name === "" ||detail.date === "") {
+    if (
+      detail.email === "" ||
+      detail.password === "" ||
+      detail.name === "" ||
+      detail.role === "" ||
+      detail.date === ""
+    ) {
       alert("Please fill the details");
       return;
     }
     addPartner(detail);
-    setDetail({name: "", email: "", password: "" , date: ""  });
+    setDetail({ name: "", email: "", password: "", date: "", role: "" });
   };
 
   return (
@@ -28,7 +40,7 @@ const AddPartner = ({ addPartner, onClose }) => {
         </button>
         <div className="bottom-section px-16">
           <h1 className="form-title font-bold text-2xl text-[#002D74]">
-            Add Partner
+            Add User
           </h1>
           <form className="flex flex-col gap-4 ">
             <div className="input-box">
@@ -63,6 +75,16 @@ const AddPartner = ({ addPartner, onClose }) => {
             </div>
             <div className="input-box">
               <input
+                type="text"
+                placeholder="Enter Password"
+                name="role"
+                value={detail.role}
+                onChange={handleChange}
+                className="p-2 rounded-xl border w-full"
+              />
+            </div>
+            <div className="input-box">
+              <input
                 type="date"
                 placeholder="Enter Register Date"
                 name="date"
@@ -76,7 +98,7 @@ const AddPartner = ({ addPartner, onClose }) => {
             onClick={handleAdd}
             className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300 w-32"
           >
-            AddPartner
+            Add Partner
           </button>
         </div>
       </div>
