@@ -21,11 +21,11 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-gray-50  flex items-center justify-center h-screen ">
-      <div className=" flex flex-col shadow-lg rounded-2xl max-w-3xl p-6 w-7/12 ">
-        <div className="left-content px-16 flex flex-col items-center">
+    <div className="flex justify-center items-center px-16 py-12 text-lg font-medium whitespace-nowrap bg-white text-zinc-700 max-md:px-5">
+      <div className="flex flex-col items-center px-16 pt-4 pb-12 mt-20 max-w-full bg-white rounded-md shadow-sm w-[846px] max-md:px-5 max-md:mt-10">
+        <div  className="flex flex-col mb-2 max-w-full w-[550px]">
            <svg
-            className=" text-center"
+            className="self-center max-w-full aspect-[3.85] w-[213px]"
             width="213"
             height="56"
             viewBox="0 0 213 56"
@@ -104,7 +104,7 @@ const Login = () => {
               </clipPath>
             </defs>
           </svg> 
-          <h1 className="text-center">Access Poodles Dashboard</h1>
+          <h1 className="justify-center self-center p-2.5 mt-4 text-2xl font-bold border-b-2 border-solid border-b-slate-200">Access Poodles Dashboard</h1>
           <br />
         </div>
         <div>

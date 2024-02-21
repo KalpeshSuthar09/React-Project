@@ -75,7 +75,7 @@ const PartnerList = ({ partner, removePartner }) => {
           </button>
         </div>
         <table className="w-full flex-wrap">
-          <thead className="bg-gray-50 border-b-2 border-gray-200">
+          <thead className="bg-gray-200 border-b-2 border-gray-200">
             <tr>
               <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/5">
                 Name

@@ -1,12 +1,15 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { CiBellOn } from "react-icons/ci";
+import { IoMdMenu } from "react-icons/io";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   const useAuth = () => {
     const user = localStorage.getItem("userDetails");
     if (user) {
@@ -24,74 +27,74 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
-      <div className="h-10vh flex justify-between z-50 text-black lg:py-5 px-20 py-4">
-        <div className="lg:flex md:flex lg:flex-1 items-center justify-start font-normal hidden">
-          {user && (
-            <>
-              <div className="flex-10">
-                <ul className="flex gap-32 mr-16 text-[18px]">
-                  <li>
-                    <Link className="text-xl duration-500" to="/Dashboard">
-                      Dashboard
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      className="text-xl duration-500 text-center"
-                      to="/Tabs"
-                    >
-                      User
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="text-xl  duration-500" to="/">
-                      Products
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="text-xl  duration-500" to="/">
-                      Bookings
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link className="text-xl  duration-500" to="/">
-                      Orders
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="flex items-center justify-end flex-1 gap-20">
-                <Link className="text-3xl ">
-                  <CiBellOn />
+    <div className="shadow-md  w-full top-0 left-0 ">
+      {user && (
+        <>
+          <div className="md:flex  items-center justify-between bg-white py-5 md:px-10 px-6">
+            <div className=" text-2xl cursor-pointer flex items-center font-[Montseerat]">
+              <Link className="text-xl duration-500" to="/Dashboard">
+                Dashboard
+              </Link>
+            </div>
+            <div
+              onClick={() => setOpen(!open)}
+              className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
+            >
+              <IoMdMenu name={open ? "close" : "menu"} />
+            </div>
+            <ul
+              className={`md:flex md:items-center md:gap-10 gap-40  md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+                open ? "top-20 " : "top-[-490px]"
+              }`}
+            >
+              <li className="md:ml-8 text-xl md:my-0 my-7">
+                <Link className="text-xl duration-500 text-center" to="/Tabs">
+                  User
                 </Link>
+              </li>
+              <li className="md:ml-8 text-xl md:my-0 my-7">
+                <Link className="text-xl  duration-500" to="/BookingTab">
+                  Bookings
+                </Link>
+              </li>
+              <li className="md:ml-8 text-xl md:my-0 my-7">
+                <Link className="text-xl  duration-500" to="/">
+                  Products
+                </Link>
+              </li>
+              <li className="md:ml-8 text-xl md:my-0 my-7">
+                <Link className="text-xl  duration-500" to="/">
+                  Order
+                </Link>
+              </li>
+            </ul>
+            <div className="flex flex-row justify-center items-center">
+              <div className="text-xl">
+                <CiBellOn />
+              </div>
+              <div className="mx-10 md:my-0">
                 <DropdownButton
                   id="dropdown-basic-button"
                   title={<CgProfile />}
-                  className="text-3xl flex"
+                  className="text-xl decoration-neutral-700"
                 >
-                  <Dropdown.Item><Link to='/UserProfilePage'>Profile</Link></Dropdown.Item>
-                  {/* <Dropdown.Item><Link to='/UserProfilePage'>Profile</Link></Dropdown.Item> */}
+                  <Dropdown.Item>Profile</Dropdown.Item>
                   <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
                 </DropdownButton>
               </div>
-            </>
-          )}
-          {!user && (
-            <>
-              <li className="mx-20 my-6  ">
-                <Link
-                  to="/Login"
-                  className="text-4xl decoration-neutral-700"
-                ></Link>
-              </li>
-            </>
-          )}
-        </div>
-      </div>
-    </nav>
+            </div>
+          </div>
+        </>
+      )}
+      {!user && (
+        <>
+            <Link
+              to="/Login"
+              className="text-4xl decoration-neutral-700"
+            ></Link>
+        </>
+      )}
+    </div>
   );
 };
 

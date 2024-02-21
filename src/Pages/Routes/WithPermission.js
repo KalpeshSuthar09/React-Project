@@ -1,12 +1,18 @@
+import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
 
-type Props = {
+const Props = {
   roleRequired: "ADMIN" | "USER",
-  message?: string,
-  children?: React.ReactNode,
+  message: String,
+  children: React.ReactNode,
 };
+/* type Props = {
+  roleRequired: "ADMIN" | "USER",
+  message?: String,
+  children?: React.ReactNode,
+}; */
 
-const useRole = () => {
+const useRole = (Props) => {
   let user;
 
   const _user = localStorage.getItem("userDetails");

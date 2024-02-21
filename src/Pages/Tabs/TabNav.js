@@ -2,14 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const TabNav = () => {
-
-
   return (
     <div className="absolute px-20 py-8">
-      <div className="tab-nav flex flex-row w-96 border-2 bg-white rounded-md overflow-hidden py-2 gap-4 px-1">
-        <Link to="/Tabs/UserPage">Normal Users</Link>
-        <Link to="/Tabs/PartnerPage">Partner User</Link>
-        <Link to="/Tabs/Block">Blocked Users</Link>
+      <div className="flex gap-5 justify-between items-center py-2 text-md rounded-lg border border-solid border-slate-300 text-zinc-700 max-md:flex-wrap">
+        <Link to="/Tabs/UserPage" className="flex-auto self-stretch my-auto">
+          Normal Users
+        </Link>
+        <Link to="/Tabs/PartnerPage" className="flex-auto self-stretch my-auto">
+          Partner User
+        </Link>
+        <Link to="/Tabs/Block" className="flex-auto self-stretch my-auto">
+          Blocked Users
+        </Link>
       </div>
     </div>
   );

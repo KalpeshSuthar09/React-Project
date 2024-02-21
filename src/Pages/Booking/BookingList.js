@@ -57,7 +57,7 @@ export default function BookingList({ booking, removeBooking }) {
     ));
 
   return (
-    <div className="details px-8 h-screen bg-gray-100">
+    <div className="details px-8 h-screen ">
       <div className="flex justify-end p-1 gap-8">
         <form>
           <input
@@ -76,7 +76,7 @@ export default function BookingList({ booking, removeBooking }) {
         </button>
       </div>
       <table className="w-full flex-wrap">
-        <thead className="bg-gray-50 border-b-2 border-gray-200">
+        <thead className="bg-gray-200 border-b-2 border-gray-200">
           <tr>
             <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/7">
               Serial No.
