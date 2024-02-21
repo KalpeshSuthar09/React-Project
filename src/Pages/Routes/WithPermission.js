@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
 
 const Props = {
@@ -6,15 +5,9 @@ const Props = {
   message: String,
   children: React.ReactNode,
 };
-/* type Props = {
-  roleRequired: "ADMIN" | "USER",
-  message?: String,
-  children?: React.ReactNode,
-}; */
 
-const useRole = (Props) => {
+const useRole = () => {
   let user;
-
   const _user = localStorage.getItem("userDetails");
 
   if (_user) {
@@ -28,11 +21,17 @@ const useRole = (Props) => {
   }
 };
 
-const WithPermission = (Props) => {
-  const { roleRequired, message, children } = Props;
+const WithPermission = ({ roleRequired, message, children }) => {
   const role = useRole();
+
   return (
-    <>{roleRequired === role ? children : <h3>{message ? message : ""}</h3>}</>
+    <>
+      {roleRequired === role ? (
+        children
+      ) : (
+        <h3>{message ? message : "Permission Denied"}</h3>
+      )}
+    </>
   );
 };
 

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BsCalendar2Date } from "react-icons/bs";
 import {Link} from 'react-router-dom'
-import UserProfilePage from "../About/UserProfilePage";
 
 const UserList = ({ user }) => {
   const [search, setSearch] = useState("");

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BsCalendar2Date } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import PartnerProfilePage from "../About/PartnerProfilePage";
 
 const PartnerList = ({ partner, removePartner }) => {
   const itemsPerPage = 10; // Set the number of items to display per page
@@ -41,7 +40,7 @@ const PartnerList = ({ partner, removePartner }) => {
     .map((val) => (
       <tr key={val.id}>
         <td className="text-left bg-white p-3">
-          <Link to="/UserProfilePage">{val.name}</Link>
+          <Link to="/PartnerProfilePage">{val.name}</Link>
         </td>
         <td className="text-left bg-white p-3">{val.email}</td>
         <td className="text-left bg-white p-3">{val.role}</td>
@@ -84,7 +83,7 @@ const PartnerList = ({ partner, removePartner }) => {
                 Email
               </th>
               <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/5">
-                Password
+                Role
               </th>
               <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/5">
                 Register Date

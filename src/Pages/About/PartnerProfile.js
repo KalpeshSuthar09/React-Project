@@ -47,9 +47,9 @@ export default function PartnerProfile(props) {
               </div>
             </div>
           </div>
-          <div className="flex flex-col ml-5 w-[69%] max-md:ml-0 max-md:w-full">
+          <div className="flex flex-col ml-5 w-[69%] max-md:ml-0 max-md:w-full drop-shadow-lg">
             <div className="flex flex-col grow max-md:mt-4 max-md:max-w-full">
-              <div className="flex flex-col justify-end px-7 py-8 bg-white rounded-md shadow-sm text-zinc-700 max-md:px-5 max-md:max-w-full">
+              <div className="flex flex-col justify-end px-7 py-8 bg-white rounded-md  text-zinc-700 max-md:px-5 max-md:max-w-full shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">
                 <div className="text-2xl font-semibold max-md:max-w-full">
                   About Me
                 </div>
@@ -84,7 +84,7 @@ export default function PartnerProfile(props) {
                         </div>
                         <div className="mt-7">Role</div>
                         <div className="justify-center items-start py-2 pr-16 pl-2.5 mt-1 text-sm whitespace-nowrap border-b border-solid border-b-slate-200 max-md:pr-5">
-                          User
+                          Partner
                         </div>
                       </div>
                     </div>

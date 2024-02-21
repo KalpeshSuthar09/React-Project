@@ -1,15 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import uuid4 from "uuid4";
-import UserProfileForm from "./UserProfileForm";
-import UserProfile from "./UserProfile";
-import Block from '../Block/Block'
+import PartnerProfileForm from "./PartnerProfileForm";
+import PartnerProfile from "./PartnerProfile";
 
 const PartnerProfilePage = () => {
   const [showModel, setShowModel] = useState(false);
-  const [blocked, setBlocked] = useState([]);
 
-  const localStorageKey = "UserProfile";
+  const localStorageKey = "partner";
   const [profile, setProfile] = useState(() => {
     return JSON.parse(localStorage.getItem(localStorageKey)) || [];
   });
@@ -29,17 +27,6 @@ const PartnerProfilePage = () => {
     setProfile(updatedList);
   };
 
-  /* const blockUser = (id) => {
-    const blockedUser = user.find((u) => u.id === id);
-    removeUser(id);
-    setBlocked([...blocked, blockedUser]);
-  };
-
-  const unblockUser = (id) => {
-    const unblockedUser = blocked.find((u) => u.id === id);
-    setBlocked(blocked.filter((u) => u.id !== id));
-    addUser(unblockedUser);
-  }; */
   return (
     <div>
       <div className="flex flex-col">
@@ -50,9 +37,12 @@ const PartnerProfilePage = () => {
           Update Profile
         </button>
         {showModel && (
-          <UserProfileForm onClose={() => setShowModel(false)} addProfile={addProfile} />
+          <PartnerProfileForm
+            onClose={() => setShowModel(false)}
+            addProfile={addProfile}
+          />
         )}
-        <UserProfile profile={profile} removeProfile={removeProfile}  />
+        <PartnerProfile profile={profile} removeProfile={removeProfile} />
       </div>
     </div>
   );

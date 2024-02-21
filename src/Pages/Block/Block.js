@@ -1,6 +1,6 @@
 /* import React, { useState } from "react";
 
-const BlockedUserList = ({ user, unblockUser }) => {
+const BlockedUserList = ({ blockedUsers, unblockUser }) => {
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -41,11 +41,6 @@ const BlockedUserList = ({ user, unblockUser }) => {
       </td>
     </tr>
   ));
-  const unblockUser = (id) => {
-    const unblockedUser = blocked.find((u) => u.id === id);
-    setBlocked(blocked.filter((u) => u.id !== id));
-    addUser(unblockedUser);
-  }; 
 
   return (
     <div className="details px-8 h-screen bg-gray-100">
@@ -70,8 +65,9 @@ const BlockedUserList = ({ user, unblockUser }) => {
             </th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>{blockList}</tbody>
       </table>
+      {renderPagination()}
     </div>
   );
 };

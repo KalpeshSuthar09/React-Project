@@ -30,7 +30,7 @@ const PartnerPage = () => {
   return (
     <div>
       <div className="flex flex-col">
-        {/* <WithPermission roleRequired="ADMIN" message='Only Admin can view this'> */}
+        <WithPermission roleRequired="ADMIN" message="Only Admin can view this">
           <button
             className=" place-self-end flex items-center gap-1 bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition duration-300 ease-in-out transform hover:scale-110"
             onClick={() => setShowModel(true)}
@@ -44,7 +44,7 @@ const PartnerPage = () => {
             />
           )}
           <PartnerList partner={partner} removePartner={removePartner} />
-        {/* </WithPermission> */}
+        </WithPermission>
       </div>
     </div>
   );

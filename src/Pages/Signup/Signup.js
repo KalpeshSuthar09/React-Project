@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -11,7 +11,10 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("userDetails", JSON.stringify(detail, {role:'USER'}));
+    localStorage.setItem(
+      "userDetails",
+      JSON.stringify(detail, { role: "USER" })
+    );
     navigate("/Login");
   };
 
@@ -67,3 +70,4 @@ const Signup = () => {
 };
 
 export default Signup;
+ */

@@ -55,7 +55,7 @@ export default function PartnerProfileForm({ addProfile, onClose }) {
   };
 
   return (
-    <div className="relative bg-white px-1 py-2 sm:py-32 lg:px-8">
+    <div className="absolute bg-white mb-32">
       <div className="flex flex-col">
         <button onClick={onClose} className="place-self-end">
           <GiTireIronCross size={20} />

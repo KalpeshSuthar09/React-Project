@@ -30,8 +30,8 @@ const Navbar = () => {
     <div className="shadow-md  w-full top-0 left-0 ">
       {user && (
         <>
-          <div className="md:flex  items-center justify-between bg-white py-5 md:px-10 px-6">
-            <div className=" text-2xl cursor-pointer flex items-center font-[Montseerat]">
+          <div className="md:flex  items-center justify-between bg-white py-5 md:px-10 px-6 font-[Montseerat]">
+            <div className=" text-2xl cursor-pointer flex items-center">
               <Link className="text-xl duration-500" to="/Dashboard">
                 Dashboard
               </Link>

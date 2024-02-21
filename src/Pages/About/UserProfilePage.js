@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import uuid4 from "uuid4";
 import UserProfileForm from "./UserProfileForm";
 import UserProfile from "./UserProfile";
-import Block from '../Block/Block'
+
 
 const UserProfilePage = () => {
   const [showModel, setShowModel] = useState(false);
-  const [blocked, setBlocked] = useState([]);
+
 
   const localStorageKey = "UserProfile";
   const [profile, setProfile] = useState(() => {
@@ -29,17 +29,6 @@ const UserProfilePage = () => {
     setProfile(updatedList);
   };
 
-  /* const blockUser = (id) => {
-    const blockedUser = user.find((u) => u.id === id);
-    removeUser(id);
-    setBlocked([...blocked, blockedUser]);
-  };
-
-  const unblockUser = (id) => {
-    const unblockedUser = blocked.find((u) => u.id === id);
-    setBlocked(blocked.filter((u) => u.id !== id));
-    addUser(unblockedUser);
-  }; */
   return (
     <div>
       <div className="flex flex-col">

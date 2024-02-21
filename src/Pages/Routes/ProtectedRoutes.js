@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
 import { Outlet, Navigate } from "react-router-dom";
 
@@ -24,22 +23,16 @@ const useAuth = () => {
   }
 };
 
-//protected route state
-
-const  ProtectedRouteType = {
+const ProtectedRouteType = {
   roleRequired: "ADMIN" | "USER",
 };
-/* type  ProtectedRouteType = {
-  roleRequired: "ADMIN" | "USER",
-}; */
 
-const ProtectedRoutes = (ProtectedRouteType) => {
+const ProtectedRoutes = ({ roleRequired }) => {
   const { auth, role } = useAuth();
 
-  //if role required is there or not
-  if (ProtectedRouteType.roleRequired) {
+  if (roleRequired) {
     return auth ? (
-      ProtectedRouteType.roleRequired === role ? (
+      roleRequired === role ? (
         <Outlet />
       ) : (
         <Navigate to="/PermissionDenied" />
