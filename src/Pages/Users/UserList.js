@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BsCalendar2Date } from "react-icons/bs";
-import {Link} from 'react-router-dom'
 
 const UserList = ({ user }) => {
   const [search, setSearch] = useState("");
@@ -39,7 +38,7 @@ const UserList = ({ user }) => {
     })
     .map((val) => (
       <tr key={val.id}>
-        <td className="text-left bg-white p-3"><Link to="/UserProfilePage">{val.name}</Link></td>
+        <td className="text-left bg-white p-3">{val.name}</td>
         <td className="text-left bg-white p-3">{val.email}</td>
         <td className="text-left bg-white p-3">{val.role}</td>
         <td className="text-left bg-white p-3">{val.date}</td>

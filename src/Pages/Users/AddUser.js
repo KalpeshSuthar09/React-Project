@@ -33,74 +33,77 @@ const AddUser = ({ addUser, onClose }) => {
   };
 
   return (
-    <div className=" fixed bg-white px-1 py-2 sm:py-32 lg:px-8">
-      <div className="flex flex-col">
+    <div className=" fixed flex justify-center items-center px-16 py-12 text-lg font-medium whitespace-nowrap bg-white text-zinc-700 max-md:px-5">
+      <div className=" flex flex-col items-center px-16 pt-4 pb-12 mt-5 ml-20 max-w-full bg-white rounded-md shadow-sm w-[868px] max-md:px-5 max-md:mt-10">
         <button onClick={onClose} className="place-self-end">
           <GiTireIronCross size={20} />
         </button>
-        <div className="bottom-section px-1">
+        <div className="flex flex-col mb-2 max-w-full w-[550px]">
           <h1 className="form-title font-bold text-2xl text-[#002D74] text-center">
             Add User
           </h1>
-          <form className="flex flex-col gap-4 mx-auto mt-16 max-w-xl sm:mt-20">
-            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div className="input-box mt-2.5">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Enter Name"
-                  value={detail.name}
-                  onChange={handleChange}
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
-                />
-              </div>
-              <div className="input-box mt-2.5">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter Email"
-                  value={detail.email}
-                  onChange={handleChange}
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
-                />
-              </div>
-              <div className="input-box mt-2.5">
-                <input
-                  type="text"
-                  placeholder="Enter Password"
-                  name="password"
-                  value={detail.password}
-                  onChange={handleChange}
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
-                />
-              </div>
-              <div className="input-box mt-2.5">
-                <input
-                  type="text"
-                  placeholder="Enter Role"
-                  name="role"
-                  value={detail.role}
-                  onChange={handleChange}
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
-                />
-              </div>
-              <div className="input-box mt-2.5">
-                <input
-                  type="date"
-                  placeholder="Enter Register Date"
-                  name="date"
-                  value={detail.date}
-                  onChange={handleChange}
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
-                />
-              </div>
+        </div>
+        <div>
+          <form className="flex flex-col items-center gap-5 ">
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter Name"
+                value={detail.name}
+                onChange={handleChange}
+                className="block py-1 px-2 w-96 text-sm text-center text-gray-900 bg-transparent border-b-2 border-gray-300  dark:text-black  dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+              />
             </div>
-            <div className="mt-10">
+            <div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter Email"
+                value={detail.email}
+                onChange={handleChange}
+                className="block py-1 px-2 w-96 text-sm text-center text-gray-900 bg-transparent border-b-2 border-gray-300  dark:text-black  dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Enter Password"
+                name="password"
+                value={detail.password}
+                onChange={handleChange}
+                className="block py-1 px-2 w-96 text-sm text-center text-gray-900 bg-transparent border-b-2 border-gray-300  dark:text-black  dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+              />
+            </div>
+            <div>
+              <select
+                name="role"
+                value={detail.role}
+                onChange={handleChange}
+                className="block py-1 px-2 w-96 text-sm text-center text-gray-900 bg-transparent border-b-2 border-gray-300  dark:text-black  dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+              >
+                <option value="" disabled>
+                  Select Role
+                </option>
+                <option value="user">User</option>
+              </select>
+            </div>
+            <div>
+              <input
+                type="date"
+                placeholder="Enter Register Date"
+                name="date"
+                value={detail.date}
+                onChange={handleChange}
+                className="block py-1 px-2 w-96 text-sm text-center text-gray-900 bg-transparent border-b-2 border-gray-300  dark:text-black  dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+              />
+            </div>
+            <div>
               <button
                 onClick={handleAdd}
-                className="block w-full rounded-md bg-cyan-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="bg-violet-700 text-white font-bold py-1 px-8 rounded w-80"
               >
-                Add Partner
+                Add User
               </button>
             </div>
           </form>
