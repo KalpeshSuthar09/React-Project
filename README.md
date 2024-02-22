@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+After downloading the project install the node modules and other modules using these command -> 
+
+### npm install node-modules
+### npm install react-router-dom
+### npm install uuidv4
+### npm install react-icons
+
+Also install tailwind from this link: [https://tailwindcss.com/docs/installation]
