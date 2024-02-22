@@ -4,10 +4,10 @@ import { GiTireIronCross } from "react-icons/gi";
 export default function AddBooking({ addBooking, onClose }) {
   const [booking, setBooking] = useState({
     name: "",
-    email: "",
-    password: "",
-    date: "",
-    role: "",
+    service: "",
+    mobile: "",
+    bookingTime: "",
+    payment: "",
   });
 
   const handleChange = (e) => {
@@ -18,17 +18,17 @@ export default function AddBooking({ addBooking, onClose }) {
 
   const handleAdd = () => {
     if (
-      booking.email === "" ||
-      booking.password === "" ||
+      booking.service === "" ||
+      booking.mobile === "" ||
       booking.name === "" ||
-      booking.role === "" ||
-      booking.date === ""
+      booking.bookingTime === "" ||
+      booking.payment === ""
     ) {
       alert("Please fill the details");
       return;
     }
     addBooking(booking);
-    setBooking({ name: "", email: "", password: "", date: "", role: "" });
+    setBooking({ name: "", service: "", mobile: "", bookingTime: "", payment: "" });
   };
 
   return (
@@ -39,7 +39,7 @@ export default function AddBooking({ addBooking, onClose }) {
         </button>
         <div className="bottom-section px-16">
           <h1 className="form-title font-bold text-2xl text-[#002D74]">
-            Add User
+            Add Booking
           </h1>
           <form className="flex flex-col gap-4 ">
             <div className="input-box">
@@ -54,10 +54,10 @@ export default function AddBooking({ addBooking, onClose }) {
             </div>
             <div className="input-box">
               <input
-                type="email"
-                name="email"
-                placeholder="Enter Email"
-                value={booking.email}
+                type="text"
+                name="service"
+                placeholder="Service Type"
+                value={booking.service}
                 onChange={handleChange}
                 className="p-2 rounded-xl border w-full"
               />
@@ -65,9 +65,9 @@ export default function AddBooking({ addBooking, onClose }) {
             <div className="input-box">
               <input
                 type="text"
-                placeholder="Enter Password"
-                name="password"
-                value={booking.password}
+                placeholder="Enter Mobile No."
+                name="mobile"
+                value={booking.mobile}
                 onChange={handleChange}
                 className="p-2 rounded-xl border w-full"
               />
@@ -75,9 +75,9 @@ export default function AddBooking({ addBooking, onClose }) {
             <div className="input-box">
               <input
                 type="text"
-                placeholder="Enter Password"
-                name="role"
-                value={booking.role}
+                placeholder="Enter Payment"
+                name="payment"
+                value={booking.payment}
                 onChange={handleChange}
                 className="p-2 rounded-xl border w-full"
               />
@@ -85,9 +85,9 @@ export default function AddBooking({ addBooking, onClose }) {
             <div className="input-box">
               <input
                 type="date"
-                placeholder="Enter Register Date"
-                name="date"
-                value={booking.date}
+                placeholder="Enter Booking Date"
+                name="bookingTime"
+                value={booking.bookingTime}
                 onChange={handleChange}
                 className="p-2 rounded-xl border w-full"
               />

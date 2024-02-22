@@ -178,7 +178,7 @@ const Login = () => {
     console.log(formErrors);
     if (!formErrors.email && !formErrors.password && isSubmit) {
       console.log(detail);
-      localStorage.setItem("userDetails", JSON.stringify(detail), { role: "USER" });
+      localStorage.setItem("userDetails", JSON.stringify({ ...detail, role: "ADMIN" }));
       navigate("/Dashboard");
     }
   }, [formErrors, isSubmit, detail, navigate]);

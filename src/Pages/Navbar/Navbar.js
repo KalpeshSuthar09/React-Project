@@ -78,7 +78,7 @@ const Navbar = () => {
                   title={<CgProfile />}
                   className="text-xl decoration-neutral-700"
                 >
-                  <Dropdown.Item>Profile</Dropdown.Item>
+                  <Dropdown.Item className="text-left">Profile</Dropdown.Item>
                   <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
                 </DropdownButton>
               </div>

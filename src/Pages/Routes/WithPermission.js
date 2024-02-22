@@ -17,7 +17,7 @@ const useRole = () => {
   if (user) {
     return user.role;
   } else {
-    return "USER";
+    return "ADMIN";
   }
 };
 

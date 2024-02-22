@@ -79,11 +79,11 @@ import PartnerPage from "../Partner/PartnerPage";
 import Login from "../Login/Login";
 import ProtectedRoutes from "./ProtectedRoutes";
 import PermissionDenied from "./PermissionDenied";
-import Signup from "../Signup/Signup";
 import UserProfilePage from "../About/UserProfilePage";
 import PartnerProfilePage from "../About/PartnerProfilePage";
 import BookingTab from "../Tabs/BookingTabs";
 import Booking from "../Booking/Booking";
+import PublicRoutes from "./PublicRoute";
 
 const MainRoute = () => {
   return (
@@ -104,7 +104,7 @@ const MainRoute = () => {
             <Route path="UserPage" element={<UserPage />} />
             <Route
               path="PartnerPage"
-              element={<ProtectedRoutes roleRequired="USER" />}
+              element={<ProtectedRoutes roleRequired="ADMIN" />}
             >
               <Route index element={<PartnerPage />} />
             </Route>
@@ -117,8 +117,12 @@ const MainRoute = () => {
           <Route path="PartnerProfilePage" element={<PartnerProfilePage />} />
         </Route>
 
-        <Route path="Login" element={<Login />} />
-        <Route path="/Signup" element={<Signup/>}/>
+          {/* Public Routes */}
+        <Route path="Login" element={<PublicRoutes />}>
+          <Route path="/Login" element={<Login />} />
+        </Route>
+
+        {/* Permission Route */}
         <Route path="PermissionDenied" element={<PermissionDenied />} />
       </Routes>
     </div>

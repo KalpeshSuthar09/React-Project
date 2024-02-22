@@ -44,10 +44,11 @@ export default function BookingList({ booking, removeBooking }) {
       <tr key={val.id}>
         <td className="text-left bg-white p-3">{index + 1}</td>
         <td className="text-left bg-white p-3">{val.serialNumber}</td>
+        <td className="text-left bg-white p-3">{val.data.service}</td>
+        <td className="text-left bg-white p-3">{val.data.bookingTime}</td>
         <td className="text-left bg-white p-3">{val.data.name}</td>
-        <td className="text-left bg-white p-3">{val.data.email}</td>
-        <td className="text-left bg-white p-3">{val.data.number}</td>
-        <td className="text-left bg-white p-3">{val.data.address}</td>
+        <td className="text-left bg-white p-3">{val.data.mobile}</td>
+        <td className="text-left bg-white p-3">{val.data.payment}</td>
         <td className="text-left bg-white p-3">
           <button className="text-white bg-green-700   font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 ">
             Active
@@ -82,22 +83,26 @@ export default function BookingList({ booking, removeBooking }) {
               Serial No.
             </th>
             <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/7">
-              Order No.
+              Booking Id
             </th>
             <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/7">
               Service Type
             </th>
             <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/7">
-              Name
+              Booking Time
             </th>
             <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/7">
-              Date
+              Customer Name
+            </th>
+
+            <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/7">
+              Mobile
             </th>
             <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/7">
-              Number
+              Payment Status
             </th>
             <th className="p-3 text-sm font-semibold tracking-wide text-left w-1/7">
-              Delete Data
+              Status
             </th>
           </tr>
         </thead>
