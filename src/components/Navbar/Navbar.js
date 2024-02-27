@@ -69,17 +69,17 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="flex flex-row justify-center items-center">
-              <div className="text-xl">
+              <div className="text-2xl hover:text-violet-500">
                 <CiBellOn />
               </div>
               <div className="mx-10 md:my-0">
                 <DropdownButton
                   id="dropdown-basic-button"
                   title={<CgProfile />}
-                  className="text-xl decoration-neutral-700"
+                  className="text-4xl  bg-cover rounded-full text-violet-500"
                 >
-                  <Dropdown.Item className="text-left">Profile</Dropdown.Item>
-                  <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+                  <Dropdown.Item className="text-left">{/* <Link to="UserProfilePage">Profile</Link> */}</Dropdown.Item>
+                  <Dropdown.Item onClick={logout} className="text-xl text-black">Logout</Dropdown.Item>
                 </DropdownButton>
               </div>
             </div>

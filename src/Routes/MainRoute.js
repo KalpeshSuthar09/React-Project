@@ -71,18 +71,18 @@ export default MainRoute;
 
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Dashboard from "../Home/Dashboard";
-import InnerContent from "../Home/InnerContent";
-import Tabs from "../Tabs/Tabs";
-import UserPage from "../Users/UserPage";
-import PartnerPage from "../Partner/PartnerPage";
-import Login from "../Login/Login";
+import Dashboard from '../Pages/Home/Dashboard'
+import InnerContent from "../Pages/Home/InnerContent";
+import Tabs from "../components/Tabs/Tabs";
+import UserPage from "../Pages/Users/UserPage";
+import PartnerPage from "../Pages/Partner/PartnerPage";
+import Login from "../components/Login/Login";
 import ProtectedRoutes from "./ProtectedRoutes";
 import PermissionDenied from "./PermissionDenied";
-import UserProfilePage from "../About/UserProfilePage";
-import PartnerProfilePage from "../About/PartnerProfilePage";
-import BookingTab from "../Tabs/BookingTabs";
-import Booking from "../Booking/Booking";
+import UserProfilePage from "../Pages/Profiles/UserProfilePage";
+import PartnerProfilePage from "../Pages/Profiles/PartnerProfilePage";
+import BookingTab from "../components/Tabs/BookingTabs";
+import Booking from "../Pages/Booking/Booking";
 import PublicRoutes from "./PublicRoute";
 
 const MainRoute = () => {

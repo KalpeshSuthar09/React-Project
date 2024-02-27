@@ -8,14 +8,15 @@ export default function UserProfile(props) {
   const { profile, removeProfile } = props;
 
   const profileList = profile.map((val, index) => (
-    <div className="flex flex-col px-10 py-8 bg-white max-md:px-5" key={index}>
-      <div className="mt-14 max-md:mt-10 max-md:max-w-full">
+    <div className="flex flex-col px-10 py-0 bg-white max-md:px-5" key={index}>
+      <div className="mt-1 max-md:mt-10 max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col max-md:gap-0 max-md:">
           <div className="flex flex-col w-[31%] max-md:ml-0 max-md:w-full">
             <div className="flex flex-col grow items-start px-16 py-12 w-full text-2xl whitespace-nowrap bg-white rounded-md shadow-sm max-md:px-5 max-md:mt-4 max-md:max-w-full">
               <div className="ml-5 max-w-full aspect-square w-[124px] max-md:ml-2.5" />
               <div className="mt-5 ml-7 font-semibold text-zinc-700 max-md:ml-2.5">
                 {val.Fname}
+
                 {val.Lname}
               </div>
               <div className="flex gap-3 mt-7 text-zinc-700">

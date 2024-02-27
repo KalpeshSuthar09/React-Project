@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import uuid4 from "uuid4";
 import AddPartner from "./AddPartner";
 import PartnerList from "./PartnerList";
-import WithPermission from "../Routes/WithPermission";
+import WithPermission from "../../Routes/WithPermission";
 
 const PartnerPage = () => {
   const [showModel, setShowModel] = useState(false);

@@ -1,13 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import uuid4 from "uuid4";
-import PartnerProfileForm from "./PartnerProfileForm";
-import PartnerProfile from "./PartnerProfile";
+import UserProfileForm from "./UserProfileForm";
+import UserProfile from "./UserProfile";
 
-const PartnerProfilePage = () => {
+const UserProfilePage = () => {
   const [showModel, setShowModel] = useState(false);
 
-  const localStorageKey = "partner";
+  const localStorageKey = "UserProfile";
   const [profile, setProfile] = useState(() => {
     return JSON.parse(localStorage.getItem(localStorageKey)) || [];
   });
@@ -21,10 +21,19 @@ const PartnerProfilePage = () => {
   };
 
   const removeProfile = (id) => {
-    const updatedList = profile.filter((val) => {
-      return val.id !== id;
-    });
-    setProfile(updatedList);
+    const profileToDelete = profile.find((val) => val.id === id);
+    const shouldDelete = window.confirm(
+      `Are you sure you want to delete ${profileToDelete?.Fname} ${profileToDelete?.Lname}'s profile?`
+    );
+
+    if (shouldDelete) {
+      const updatedList = profile.filter((val) => {
+        return val.id !== id;
+      });
+      setProfile(updatedList);
+    } else {
+      alert("Profile deletion canceled.");
+    }
   };
 
   return (
@@ -37,15 +46,15 @@ const PartnerProfilePage = () => {
           Update Profile
         </button>
         {showModel && (
-          <PartnerProfileForm
+          <UserProfileForm
             onClose={() => setShowModel(false)}
             addProfile={addProfile}
           />
         )}
-        <PartnerProfile profile={profile} removeProfile={removeProfile} />
+        <UserProfile profile={profile} removeProfile={removeProfile} />
       </div>
     </div>
   );
 };
 
-export default PartnerProfilePage;
+export default UserProfilePage;
