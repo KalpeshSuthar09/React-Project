@@ -83,6 +83,7 @@ import UserProfilePage from "../Pages/Profiles/UserProfilePage";
 import PartnerProfilePage from "../Pages/Profiles/PartnerProfilePage";
 import BookingTab from "../components/Tabs/BookingTabs";
 import Booking from "../Pages/Booking/Booking";
+import BookingProfile from "../Pages/Booking/BookingProfile";
 import PublicRoutes from "./PublicRoute";
 
 const MainRoute = () => {
@@ -112,6 +113,7 @@ const MainRoute = () => {
           <Route path="BookingTab" element={<BookingTab />}>
             <Route index element={<Navigate replace to="Booking" />} />
             <Route path="Booking" element={<Booking />} />
+            <Route path="BookingProfile" element={<BookingProfile />} />
           </Route>
           <Route path="UserProfilePage" element={<UserProfilePage />} />
           <Route path="PartnerProfilePage" element={<PartnerProfilePage />} />

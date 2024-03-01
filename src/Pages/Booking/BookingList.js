@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BsCalendar2Date } from "react-icons/bs";
 
 export default function BookingList({ booking, removeBooking }) {
-  const itemsPerPage = 10; // Set the number of items to display per page
+  const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
 
@@ -36,19 +36,34 @@ export default function BookingList({ booking, removeBooking }) {
     );
   };
 
-  const bookingList = booking
+  const generateRandomBookingNumber = () => {
+    const length = 8;
+    const characters = "0123456789";
+    let bookingNumber = "";
+
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      bookingNumber += characters.charAt(randomIndex);
+    }
+
+    return bookingNumber;
+  };
+
+  const bookingList = currentItems
     .filter((val) => {
       return search === "" ? val : val.name.includes(search);
     })
     .map((val, index) => (
       <tr key={val.id}>
         <td className="text-left bg-white p-3">{index + 1}</td>
-        <td className="text-left bg-white p-3">{val.serialNumber}</td>
-        <td className="text-left bg-white p-3">{val.data.service}</td>
-        <td className="text-left bg-white p-3">{val.data.bookingTime}</td>
-        <td className="text-left bg-white p-3">{val.data.name}</td>
-        <td className="text-left bg-white p-3">{val.data.mobile}</td>
-        <td className="text-left bg-white p-3">{val.data.payment}</td>
+        <td className="text-left bg-white p-3">
+          {generateRandomBookingNumber()}
+        </td>
+        <td className="text-left bg-white p-3">{val.service}</td>
+        <td className="text-left bg-white p-3">{val.bookingTime}</td>
+        <td className="text-left bg-white p-3">{val.name}</td>
+        <td className="text-left bg-white p-3">{val.mobile}</td>
+        <td className="text-left bg-white p-3">{val.payment}</td>
         <td className="text-left bg-white p-3">
           <button className="text-white bg-green-700   font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 ">
             Active

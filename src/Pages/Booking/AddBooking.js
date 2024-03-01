@@ -53,14 +53,18 @@ export default function AddBooking({ addBooking, onClose }) {
               />
             </div>
             <div className="input-box">
-              <input
-                type="text"
+            <select
                 name="service"
-                placeholder="Service Type"
                 value={booking.service}
                 onChange={handleChange}
-                className="p-2 rounded-xl border w-full"
-              />
+                className="block py-1 px-2 w-96 text-sm text-center text-gray-900 bg-transparent border-b-2 border-gray-300  dark:text-black  dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-blue-600"
+              >
+                <option value="" disabled>
+                  Select Services
+                </option>
+                <option value="Normal Booking">Normal Booking</option>
+                <option value="Vet Booking">Vet Booking</option>
+              </select>
             </div>
             <div className="input-box">
               <input
