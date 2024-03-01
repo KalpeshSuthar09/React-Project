@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GiTireIronCross } from "react-icons/gi";
 
-export default function AddBooking({ addBooking, onClose }) {
+export default function AddBooking({ addBooking, onClose}) {
   const [booking, setBooking] = useState({
     name: "",
     service: "",
@@ -27,6 +27,7 @@ export default function AddBooking({ addBooking, onClose }) {
       alert("Please fill the details");
       return;
     }
+    
     addBooking(booking);
     setBooking({ name: "", service: "", mobile: "", bookingTime: "", payment: "" });
   };

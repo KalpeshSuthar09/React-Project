@@ -25,6 +25,11 @@ export default function Booking() {
     setBooking(updatedBookings);
   };
 
+  /* const editBooking = (editedBooking) => {
+    const updatedBookings = booking.map((val) => (val.id === editedBooking.id));
+    setBooking(updatedBookings);
+  }; */
+
   return (
     <div>
       <div className="flex flex-col">
@@ -40,7 +45,7 @@ export default function Booking() {
             addBooking={addBooking}
           />
         )}
-        <BookingList booking={booking} removeUser={removeBooking} />
+        <BookingList booking={booking} removeUser={removeBooking} /* editBooking={editBooking} */ />
       </div>
     </div>
   );

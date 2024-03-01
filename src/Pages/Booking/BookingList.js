@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { BsCalendar2Date } from "react-icons/bs";
 
-export default function BookingList({ booking, removeBooking }) {
+export default function BookingList({ booking, removeBooking, editBooking }) {
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
+
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -68,6 +69,9 @@ export default function BookingList({ booking, removeBooking }) {
           <button className="text-white bg-green-700   font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 ">
             Active
           </button>
+          {/* <button onClick={() => editBooking(val.id)} className="text-white bg-green-700   font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 ">
+            Edit
+          </button> */}
         </td>
       </tr>
     ));
